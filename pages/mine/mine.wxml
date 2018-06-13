@@ -1,0 +1,16 @@
+<view>
+  <view class='person-info'>
+    <view class="weui-cells weui-cells_after-title">
+      <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <view class="weui-cell__hd">
+          <image src="{{userInfo.avatarUrl}}" style="margin-right: 5px;vertical-align: middle;width:128rpx; height: 128rpx;"></image>
+        </view>
+        <view class="weui-cell__bd person-info-content">
+          <text class='nickName'> {{userInfo.nickName}}</text>
+          <text class='edit'>查看个人主页或编辑简介</text>
+        </view>       
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </navigator>
+    </view>
+  </view>
+</view>

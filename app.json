@@ -1,7 +1,8 @@
 {
   "pages":[
-    "pages/index/index",
     "pages/main/main",
+    "pages/index/index",
+    "pages/mine/mine",
     "pages/logs/logs",
     "pages/test/test"
   ],
@@ -42,7 +43,7 @@
           "selectedIconPath": "icon/ring_focus.png"
         },
         {
-          "pagePath": "pages/logs/logs",
+          "pagePath": "pages/mine/mine",
           "text": "我的",
           "iconPath": "icon/people.png",
           "selectedIconPath": "icon/people_focus.png"

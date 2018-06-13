@@ -1,0 +1,17 @@
+.person-info {
+  margin-top:24rpx; 
+}
+.person-info-content {
+  padding-left: 24rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-size: 18px; 
+}
+
+.edit {
+  font-size: 14px;
+  color: #bababa;
+}
