@@ -7,11 +7,18 @@
   flex-direction: column;
 }
 
-.name {
-  font-size: 18px; 
+.nickName {
+  font-size: 17px; 
 }
 
 .edit {
-  font-size: 14px;
+  font-size: 13px;
   color: #bababa;
+}
+
+.partition {
+  height: 36rpx;
+  display: flex;
+  flex:1;
+  flex-direction: row;
 }

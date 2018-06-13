@@ -8,7 +8,18 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    menus: [
+      { url: '', name: '我的关注', icon: 'follow.png', bgcolor: '#f4ea2a' },
+      { url: '', name: '我的收藏', icon: 'star.png', bgcolor: '#13227a' },
+      { url: '', name: '最近浏览', icon: 'recently.png', bgcolor: '#cdcdcd' },
+      { url: '', name: '我的创作', icon: 'book.png', bgcolor: '#1afa29' },
+      { url: '', name: '我的Live', icon: 'lighting.png', bgcolor: '#1296db' },
+      { header: true },
+      { url: '', name: '反馈与帮助', icon: 'flag.png', bgcolor: '#8a8a8a' },
+      { header: true },
+      { url: '', name: '设置', icon: 'setting.png', bgcolor: '#8a8a8a' },
+    ]
   },
 
   /**
@@ -55,48 +66,48 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   }
 })

@@ -43,3 +43,8 @@ page{
     text-align: left;
     font-size: 14px;
 }
+
+.card {
+  margin-top: 24rpx; 
+  background-color: #ffffff;
+}
