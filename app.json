@@ -1,0 +1,52 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/main/main",
+    "pages/logs/logs",
+    "pages/test/test"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "知乎",
+    "navigationBarTextStyle":"black"
+  },
+    "tabBar": {
+      "color": "#626567",
+      "selectedColor": "#2A8CE5",
+      "backgroundColor": "#FBFBFB",
+      "borderStyle": "white",
+      "list": [
+        {
+          "pagePath": "pages/main/main",
+          "text": "首页",
+          "iconPath": "icon/card.png",
+          "selectedIconPath": "icon/card_focus.png"
+        },
+        {
+          "pagePath": "pages/test/test",
+          "text": "想法",
+          "iconPath": "icon/coursera.png",
+          "selectedIconPath": "icon/coursera_focus.png"
+        },
+        {
+          "pagePath": "pages/logs/logs",
+          "text": "大学",
+          "iconPath": "icon/cap.png",
+          "selectedIconPath": "icon/cap_focus.png"
+        },
+        {
+          "pagePath": "pages/logs/logs",
+          "text": "消息",
+          "iconPath": "icon/ring.png",
+          "selectedIconPath": "icon/ring_focus.png"
+        },
+        {
+          "pagePath": "pages/logs/logs",
+          "text": "我的",
+          "iconPath": "icon/people.png",
+          "selectedIconPath": "icon/people_focus.png"
+        }
+      ]
+    }
+}
