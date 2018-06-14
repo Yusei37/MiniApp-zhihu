@@ -10,7 +10,7 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     menus: [
-      { url: '', name: '我的关注', icon: 'follow.png', bgcolor: '#f4ea2a' },
+      { url: '', name: '我的关注', icon: 'follow.png', bgcolor: '#44ea2a' },
       { url: '', name: '我的收藏', icon: 'star.png', bgcolor: '#13227a' },
       { url: '', name: '最近浏览', icon: 'recently.png', bgcolor: '#cdcdcd' },
       { url: '', name: '我的创作', icon: 'book.png', bgcolor: '#1afa29' },
@@ -54,12 +54,15 @@ Page({
     }
   },
   getUserInfo: function (e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
+    let result = e.detail.errMsg.split(':')[1]
+    console.log(result)
+    if (result === 'ok') {
+      app.globalData.userInfo = e.detail.userInfo
+      this.setData({
+        userInfo: e.detail.userInfo,
+        hasUserInfo: true
+      })
+    }
   },
 
   /**
