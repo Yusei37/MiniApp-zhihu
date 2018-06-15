@@ -1,1 +1,42 @@
-/* pages/live/live.wxss */
+.slide-image {
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+}
+
+#item2 {
+  width: 65%;
+}
+
+#svg {
+  width: 20rpx;
+  height: 20rpx;
+}
+
+.price {
+  font-size: 13px;
+  color: #1afa29;
+  padding-right: 40rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  padding-left: 40rpx;
+  white-space: nowrap;
+  border-radius: 30rpx;
+  background-color: #FFF0F5;
+}
+
+.message {
+  margin-top: 10rpx;
+  font-size: 13px;
+  color: #bababa;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  white-space: normal !important;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}

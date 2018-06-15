@@ -1,2 +1,42 @@
-<!--pages/live/live.wxml-->
-<text>pages/live/live.wxml</text>
+<view>
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="weui-panel">
+    <view class="weui-panel__hd weui-cell">
+      <view class="weui-cell__bd">Live小讲</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access">查看全部</view>
+    </view>
+    <view class="weui-panel__bd">
+      <view class="weui-media-box weui-media-box_text content">
+        <view class="weui-cell__hd">
+          <image src="/icon/message.png" style="margin-right: 5px;vertical-align: middle;width:100rpx; height: 100rpx;"></image>
+        </view>
+        <view class="weui-cell__hd" id='item2'>
+          <view class="weui-media-box__title weui-media-box__title_in-text">亲人抽烟，总担心他患肺癌怎么办？</view>
+          <view class="weui-media-box__info">
+            <view class="weui-media-box__info__meta">xx</view>
+            <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">77分钟</view>
+          </view>
+        </view>
+
+        <view class="weui-cell__bd" style='text-align: center'>
+           <text class='price'>¥ 5.9</text>          
+          <text class='message'>会员免费</text>
+        </view>
+
+      </view>
+    </view>
+
+    <view class="weui-panel__ft" style='text-align: center'>
+      <view class="weui-cell__bd">
+      <image src='/icon/change.svg' id='svg'></image>
+        <text style='color: #1afa29'> 换一批</text> 
+      </view>
+    </view>
+  </view>
+</view>
