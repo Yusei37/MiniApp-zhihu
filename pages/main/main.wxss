@@ -16,7 +16,25 @@ page,
 .page__bd{
     padding-bottom: 0;
 }
-.weui-tab__content{
-    padding-top: 60px;
-    text-align: center;
+/* .weui-tab__content{
+      padding-top: 10rpx;  
+     text-align: center; 
+} */
+
+.partition {
+  height: 1rpx; 
+  display: flex;
+  flex:1;
+  flex-direction: row;
+  background-color: #F8F8F8;
+}
+
+.avatar image{
+  /*position: absolute;*/
+  display: inline-block;
+  width: 45rpx;
+  height: 45rpx;
+  border-radius: 45rpx;
+  top: 10rpx;
+  vertical-align: middle;
 }
