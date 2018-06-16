@@ -127,5 +127,11 @@ Page({
     wx.navigateTo({
       url: '/pages/answer/answer'
     })
+  },
+
+  OnJump2Write: function() {
+    wx.navigateTo({
+      url: '/pages/write/write'
+    })
   }
 })

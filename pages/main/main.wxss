@@ -38,3 +38,12 @@ page,
   top: 10rpx;
   vertical-align: middle;
 }
+
+.question {
+  align-self: center;
+  align-items: center;
+  margin-left: 10px;
+  white-space:nowrap;
+  color: #1296db;
+  line-height:28px;
+}

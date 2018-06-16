@@ -1,0 +1,17 @@
+<view class='mycontainer'>
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__bd">
+      <input class="weui-input" placeholder="输入问题并以问号结尾" />
+    </view>
+  </view>
+
+  <view class="weui-cell">
+    <view class="weui-cell__bd tarea">
+      <textarea class="weui-textarea" placeholder="问题描述（选填)" />
+      <view class="weui-textarea-counter">0/200</view>
+    </view>
+  </view>
+  <view class="weui-btn-area">
+    <button class="weui-btn" type="primary" bindtap="" style="background-color: #1296db">发布</button>
+  </view>
+</view>

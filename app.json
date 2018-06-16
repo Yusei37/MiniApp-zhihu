@@ -6,7 +6,8 @@
     "pages/message/message",
     "pages/mine/mine",
     "pages/answer/answer",
-    "pages/index/index"
+    "pages/index/index",
+    "pages/write/write"
   ],
   "window":{
     "backgroundTextStyle":"light",
