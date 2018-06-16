@@ -5,6 +5,7 @@
     "pages/live/live",
     "pages/message/message",
     "pages/mine/mine",
+    "pages/answer/answer",
     "pages/index/index"
   ],
   "window":{

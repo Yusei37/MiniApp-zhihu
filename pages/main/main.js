@@ -121,5 +121,11 @@ Page({
       wx.hideNavigationBarLoading();
     }, 1000);
     console.log("lower")
+  },
+
+  onJump: function() {
+    wx.navigateTo({
+      url: '/pages/answer/answer'
+    })
   }
 })
