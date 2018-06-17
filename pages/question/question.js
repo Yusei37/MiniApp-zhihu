@@ -1,4 +1,4 @@
-// pages/answer/answer.js
+// pages/question/question.js
 Page({
 
   /**
@@ -62,11 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-
-  onJump2Question: function() {
-    wx.navigateTo({
-      url: '/pages/question/question'
-    })
   }
 })

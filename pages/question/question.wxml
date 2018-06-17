@@ -1,0 +1,98 @@
+<view>
+  <view class="weui-panel weui-panel_access">
+    <view class="weui-panel__bd">
+      <view class="weui-media-box weui-media-box_text">
+        <view class="weui-media-box__title weui-media-box__title_in-text">如何评价苹果的AirPods无线耳机？</view>
+        <view class="weui-media-box__desc">iPhone 7附赠Lightning接口的EarPods和Lightning转耳机孔的转接头。但AirPods 无线耳机单独出售。售价$159。</view>
+      </view>
+    </view>
+    <view class="weui-panel__ft">
+      <view class="header">
+        <view class='info'>
+          <text id='detail'>5393 人关注 37条评论</text>
+        </view>
+        <view class='follow'>
+          <text id='follow'>+ 关注问题</text>
+        </view>
+      </view>
+    </view>
+    <view class='area'>
+      <view class='item'>
+        <image src='/icon/invite.png'></image>
+        <text>邀请回答</text>
+      </view>
+      <view class='item'>
+        <image src='/icon/answer.png'></image>
+        <text>添加回答</text>
+      </view>
+    </view>
+  </view>
+
+  <view class='comment-list'>
+
+    <view>
+      <view class='partition'></view>
+      <view class="weui-panel">
+
+        <view class="weui-panel__bd">
+          <view class="weui-media-box weui-media-box_text">
+            <view class="weui-media-box__title weui-media-box__title_in-text">
+              <view class="avatar">
+                <image src="/icon/icon_tabbar.png"></image>
+                xxx
+              </view>
+            </view>
+            <view class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。 由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。
+            </view>
+            <view class="weui-media-box__info">
+              <view class="weui-media-box__info__meta">143 赞同 · 30 评论 · 一个月前</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view>
+      <view class='partition'></view>
+      <view class="weui-panel">
+        <view class="weui-panel__bd">
+          <view class="weui-media-box weui-media-box_text">
+            <view class="weui-media-box__title weui-media-box__title_in-text">
+              <view class="avatar">
+                <image src="/icon/icon_tabbar.png"></image>
+                xxx
+              </view>
+            </view>
+            <view class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
+            <view class="weui-media-box__info">
+              <view class="weui-media-box__info__meta">143 赞同 · 30 评论 · 一个月前</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view>
+      <view class='partition'></view>
+      <view class="weui-panel">
+        <view class="weui-panel__bd">
+          <view class="weui-media-box weui-media-box_text">
+            <view class="weui-media-box__title weui-media-box__title_in-text">
+              <view class="avatar">
+                <image src="/icon/icon_tabbar.png"></image>
+                xxx
+              </view>
+            </view>
+            <view class="weui-media-box__desc">君莫笑：由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
+            <view class="weui-media-box__info">
+              <view class="weui-media-box__info__meta">143 赞同 · 30 评论 · 一个月前</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+
+  </view>
+
+</view>
