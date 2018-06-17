@@ -1,3 +1,12 @@
+swiper {
+  margin-left:40rpx; 
+  margin-right:40rpx; 
+}
+
+swiper-item {
+  border-radius: 10rpx;
+}
+
 .slide-image {
   width: 100%;
 }

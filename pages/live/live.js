@@ -1,4 +1,5 @@
-// pages/live/live.js
+const host = require('../../utils/host')
+
 Page({
 
   /**
@@ -13,14 +14,16 @@ Page({
     indicatorDots: true,
     autoplay: true,
     interval: 5000,
-    duration: 1000  
+    duration: 1000,
+    liveData: [] 
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    let that = this
+    that.getLiveData()
   },
 
   /**
@@ -48,7 +51,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
@@ -70,5 +73,54 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  getLiveData: function () {
+    let that = this
+    wx.request({
+      url: host.host + '/live',
+      data: '',
+      header: { 'content-type': 'application/json' },
+      method: 'GET',
+      dataType: 'json',
+      success: function (res) {
+        console.log('live request successed: ' + res)
+        if (res.statusCode == 200) {
+            let result = res.data 
+            console.log(result.length)
+            for (let i = 0; i < result.length; i++) {
+              result[i].image = host.host + result[i].image
+            }
+            that.setData({
+              liveData: result
+            })
+            wx.showToast({
+              title: '加载成功',
+              icon: 'success',
+              duration: 2000
+            })
+        }
+        else {
+          fail()
+        }
+        
+      },
+      fail: function (res) {
+        console.log('live request failed: ' + res)   
+          wx.showToast({
+            title: '数据加载失败',
+            icon: 'none',
+            duration: 2000
+          })
+      },
+      complete: function (res) {
+        console.log('live request completed: ' + res)
+      }
+    })
+  },
+
+  onReloadData: function () {
+    let that = this
+    that.getLiveData()
   }
 })

@@ -1,4 +1,6 @@
 const app = getApp()
+const host = require('../../utils/host')
+
 Page({
 
   /**
@@ -19,7 +21,8 @@ Page({
       { url: '', name: '反馈与帮助', icon: 'flag.png', bgcolor: '#8a8a8a' },
       { header: true },
       { url: '', name: '设置', icon: 'setting.png', bgcolor: '#8a8a8a' },
-    ]
+    ],
+    favor: []
   },
 
   /**
@@ -54,14 +57,16 @@ Page({
     }
   },
   getUserInfo: function (e) {
+    let that = this
     let result = e.detail.errMsg.split(':')[1]
     console.log(result)
     if (result === 'ok') {
       app.globalData.userInfo = e.detail.userInfo
-      this.setData({
+      that.setData({
         userInfo: e.detail.userInfo,
         hasUserInfo: true
-      })
+      }),
+      that.myLogin()
     }
   },
 
@@ -112,5 +117,34 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  
+  myLogin: function () {
+    let that = this
+    console.log(that.data.userInfo.nickName)
+    wx.request({
+      url: host.host + '/user/login/' + that.data.userInfo.nickName,
+      data: '',
+      header: { 'content-type': 'application/json' },
+      method: 'GET',
+      dataType: 'json',
+      success: function(res) {
+        console.log('mine request successed: ' + res) 
+        if (res.statusCode == 200) {
+          that.setData({
+            favor: res.data
+          })
+        }
+        else {
+          fail()
+        }
+      },
+      fail: function(res) {
+        console.log('mine request failed: ' + res) 
+      },
+      complete: function(res) {
+        console.log('mine request completed: ' + res)
+      },
+    })
   }
 })
