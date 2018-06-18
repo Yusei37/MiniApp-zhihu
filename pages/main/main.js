@@ -1,4 +1,7 @@
 var sliderWidth = 96; // 需要设置slider的宽度，用于计算中间位置
+const host = require('../../utils/host')
+const formatTime = require('../../utils/util')
+
 Page({
 
   /**
@@ -10,14 +13,15 @@ Page({
     tabs: ["关注", "推荐", "热榜"],
     activeIndex: 1,
     sliderOffset: 0,
-    sliderLeft: 0
+    sliderLeft: 0,
+    questionData: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    var that = this;
+   let that = this;
     wx.getSystemInfo({
       success: function(res) {
         that.setData({
@@ -26,6 +30,7 @@ Page({
         });
       }
     });
+    that.getQuestionData()
   },
 
   /**
@@ -116,22 +121,64 @@ Page({
   },
   lower: function(e) {
     wx.showNavigationBarLoading();
-    var that = this;
+    let that = this;
     setTimeout(function() {
       wx.hideNavigationBarLoading();
     }, 1000);
     console.log("lower")
   },
 
-  onJump: function() {
+  onJump2Answer: function (e) {
+    let that = this
+    let replyId = e.currentTarget.id
     wx.navigateTo({
-      url: '/pages/answer/answer'
+      url: '/pages/answer/answer?replyId=' + replyId
     })
   },
 
   OnJump2Write: function() {
     wx.navigateTo({
       url: '/pages/write/write'
+    })
+  },
+
+  getQuestionData: function () {
+    let that = this
+    wx.request({
+      url: host.host + '/question',
+      data: '',
+      header: { 'content-type': 'application/json' },
+      method: 'GET',
+      dataType: 'json',
+      success: function (res) {
+        console.log('question request successed: ' + res)
+        if (res.statusCode == 200) {
+          let result = res.data
+          console.log(result)
+          for (let i = 0; i < result.length; i++) {
+            for(let j = 0; j < result[i].reply.length; j++)
+              result[i].reply[j].time = formatTime.formatTime(new Date(result[i].reply[j].time))
+          }
+          that.setData({
+            questionData: result
+          })
+        }
+        else {
+          
+        }
+
+      },
+      fail: function (res) {
+        console.log('question request failed: ' + res)
+        wx.showToast({
+          title: '数据加载失败',
+          icon: 'success',
+          duration: 2000
+        })
+      },
+      complete: function (res) {
+        console.log('question request completed: ' + res)
+      }
     })
   }
 })

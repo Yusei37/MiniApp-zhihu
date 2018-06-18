@@ -121,12 +121,15 @@ Page({
   
   myLogin: function () {
     let that = this
-    console.log(that.data.userInfo.nickName)
+    // console.log(that.data.userInfo.nickName)
     wx.request({
-      url: host.host + '/user/login/' + that.data.userInfo.nickName,
-      data: '',
+      url: host.host + '/user/login',
+      data: {
+        nickName: that.data.userInfo.nickName,
+        avatarUrl: that.data.userInfo.avatarUrl
+      },
       header: { 'content-type': 'application/json' },
-      method: 'GET',
+      method: 'POST',
       dataType: 'json',
       success: function(res) {
         console.log('mine request successed: ' + res) 
@@ -134,9 +137,10 @@ Page({
           that.setData({
             favor: res.data
           })
+          app.globalData.favor = res.data
         }
         else {
-          fail()
+          
         }
       },
       fail: function(res) {

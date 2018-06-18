@@ -2,7 +2,7 @@
   <view class="weui-panel weui-panel_access">
     <view class="weui-panel__bd" catchtap='onJump2Question'>
       <view class="weui-media-box weui-media-box_text">
-        <view class="weui-media-box__title weui-media-box__title_in-text">选择Kindle而不是纸质书的原因是？</view>
+        <view class="weui-media-box__title weui-media-box__title_in-text">{{questionTitle}}</view>
       </view>
     </view>
 
@@ -13,7 +13,7 @@
           <text class="weui-cell__ft" style='color: #1296db'>写回答</text>
         </view>
       </view>
-      <view class="weui-cell__ft weui-cell__ft_in-access weui-cell_link">查看全部 320 个回答</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access weui-cell_link" catchtap='onJump2Question'>查看全部 {{replyNumber}} 个回答</view>
     </view>
 
   </view>
@@ -22,10 +22,10 @@
     <view class="weui-panel__hd">
       <view class="header">
         <view class='avatar'>
-          <image src="/icon/icon_tabbar.png"></image>
+          <image src="{{reply.image}}"></image>
         </view>
         <view class='info'>
-          <text id='name'>wzyy</text>
+          <text id='name'>{{reply.name}}</text>
         </view>
         <view class='follow'>
           <text id='follow'>+ 关注</text>
@@ -35,11 +35,10 @@
     <view class="weui-panel__bd">
       <view class="weui-media-box weui-media-box_text">
         <view class="weui-media-box__title_in-text">
-          难道不明白纸质书更贵啊！！！ 若觉得kindle更贵，我觉得要么阅读量太少，那确实没有买kindle的必要。要么买的都是盗版的纸质书？我不清楚不加以评论。。。 另外，用kindle看小说的怎么真心不懂了。题主不看小说么？难道题主拿来看教科书还是技术文档？还是题主觉得小说就是小时代内样的？（对小时代没偏见，尊重多样性） 而且纸质书搬起来真心困难啊！当初毕业带不回来，忍痛卖了不少好桑心！ 碎片时间阅读总不能天天背着一本书吧，那么占地方。 看到描述最后一段，感觉有骗答案的嫌疑 难道不明白纸质书更贵啊！！！
-          若觉得kindle更贵，我觉得要么阅读量太少，那确实没有买kindle的必要。要么买的都是盗版的纸质书？我不清楚不加以评论。。。 另外，用kindle看小说的怎么真心不懂了。题主不看小说么？难道题主拿来看教科书还是技术文档？还是题主觉得小说就是小时代内样的？（对小时代没偏见，尊重多样性） 而且纸质书搬起来真心困难啊！当初毕业带不回来，忍痛卖了不少好桑心！ 碎片时间阅读总不能天天背着一本书吧，那么占地方。 看到描述最后一段，感觉有骗答案的嫌疑
+          {{reply.content}}
         </view>
         <view class="weui-media-box__info">
-          <view class="weui-media-box__info__meta">编辑于 时间</view>
+          <view class="weui-media-box__info__meta">编辑于 {{reply.time}}</view>
           <view class="weui-media-box__info__meta">著作权归作者所有</view>
         </view>
       </view>
@@ -50,7 +49,7 @@
       <view class='updown'>
         <view id='up'>
           <image src='/icon/up.png' style="vertical-align: middle;width:50rpx; height: 50rpx;"></image>
-          <text>赞同 243</text>
+          <text>赞同 {{reply.up.length}}</text>
         </view>
         <view id='down'>
           <image src='/icon/down.png' style="vertical-align: middle;width:50rpx; height: 50rpx;"></image>
@@ -59,7 +58,7 @@
       <view class='other'>
         <view class='item'>
           <image src='/icon/comment.png'></image>
-          <text>评论</text>
+          <text>评论 {{reply.comment.length}}</text>
         </view>
         <view class='item'>
           <image src='/icon/collect.png'></image>
