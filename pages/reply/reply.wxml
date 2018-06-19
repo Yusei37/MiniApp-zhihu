@@ -1,0 +1,6 @@
+<view class='page'>
+  <form bindsubmit="addReply">
+    <textarea class="weui-textarea" maxlength="-1" placeholder="填写回答内容" name="textarea" />
+    <button class="weui-btn" form-type="submit" type="primary" style="background-color: #1296db">发布</button>
+  </form>
+</view>

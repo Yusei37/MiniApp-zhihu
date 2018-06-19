@@ -8,9 +8,9 @@
 
     <view class="weui-cell weui-cell_access weui-panel__bd">
       <view class="weui-cell__bd">
-        <view id='write'>
-          <image src='/icon/write.png' style="margin-right: 5px;vertical-align: middle;width:40rpx; height: 40rpx;"></image>
-          <text class="weui-cell__ft" style='color: #1296db'>写回答</text>
+        <view id='write' catchtap='{{jump}}'>
+          <image src='{{writeImage}}' style="margin-right: 5px;vertical-align: middle;width:40rpx; height: 40rpx;"></image>
+          <text class="weui-cell__ft" style='color: #1296db'>{{write}}</text>
         </view>
       </view>
       <view class="weui-cell__ft weui-cell__ft_in-access weui-cell_link" catchtap='onJump2Question'>查看全部 {{replyNumber}} 个回答</view>
@@ -22,23 +22,23 @@
     <view class="weui-panel__hd">
       <view class="header">
         <view class='avatar'>
-          <image src="{{reply.image}}"></image>
+          <image src="{{replyShow.image}}"></image>
         </view>
         <view class='info'>
-          <text id='name'>{{reply.name}}</text>
+          <text id='name'>{{replyShow.name}}</text>
         </view>
-        <view class='follow'>
-          <text id='follow'>+ 关注</text>
+        <view class='follow' catchtap='changeFollow'>
+          <text id='follow' style='background-color: {{bgColor}}; color: {{color}};'>{{follow}}</text>
         </view>
       </view>
     </view>
     <view class="weui-panel__bd">
       <view class="weui-media-box weui-media-box_text">
         <view class="weui-media-box__title_in-text">
-          {{reply.content}}
+          {{replyShow.content}}
         </view>
         <view class="weui-media-box__info">
-          <view class="weui-media-box__info__meta">编辑于 {{reply.time}}</view>
+          <view class="weui-media-box__info__meta">编辑于 {{replyShow.time}}</view>
           <view class="weui-media-box__info__meta">著作权归作者所有</view>
         </view>
       </view>
@@ -47,26 +47,26 @@
 
   <view class="weui-panel__ft">
       <view class='updown'>
-        <view id='up'>
-          <image src='/icon/up.png' style="vertical-align: middle;width:50rpx; height: 50rpx;"></image>
-          <text>赞同 {{reply.up.length}}</text>
+        <view id='up' catchtap='changeUp'>
+          <image src='{{upImage}}' style="vertical-align: middle;width:50rpx; height: 50rpx;"></image>
+          <text style='color: {{upColor}};'>{{up}} {{replyShow.up.length}}</text>
         </view>
-        <view id='down'>
-          <image src='/icon/down.png' style="vertical-align: middle;width:50rpx; height: 50rpx;"></image>
+        <view id='down' catchtap='changeDown'>
+          <image src='{{downImage}}' style="vertical-align: middle;width:50rpx; height: 50rpx;"></image>
         </view>
       </view>
       <view class='other'>
         <view class='item'>
           <image src='/icon/comment.png'></image>
-          <text>评论 {{reply.comment.length}}</text>
+          <text>评论 {{replyShow.comment.length}}</text>
         </view>
         <view class='item'>
-          <image src='/icon/collect.png'></image>
-          <text>收藏</text>
+          <image src='{{collectImage}}' catchtap='changeCollect'></image>
+          <text style='color: {{collectColor}};'>{{collect}}</text>
         </view>
         <view class='item'>
-          <image src='/icon/heart.png'></image>
-          <text>感谢</text>
+          <image src='{{thankImage}}' catchtap='changeThank'></image>
+          <text style='color: {{thankColor}};'>{{thank}}</text>
         </view>
       </view>
   </view>

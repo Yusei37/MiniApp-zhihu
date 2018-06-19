@@ -1,17 +1,18 @@
 <view class='mycontainer'>
-  <view class="weui-cell weui-cell_input">
-    <view class="weui-cell__bd">
-      <input class="weui-input" placeholder="输入问题并以问号结尾" />
+  <form bindsubmit="addQuestion">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="输入问题并以问号结尾" name="title" />
+      </view>
     </view>
-  </view>
 
-  <view class="weui-cell">
-    <view class="weui-cell__bd tarea">
-      <textarea class="weui-textarea" placeholder="问题描述（选填)" />
-      <view class="weui-textarea-counter">0/200</view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd tarea">
+        <textarea class="weui-textarea" maxlength="200" placeholder="问题描述（选填, 200字以内)" name="textarea" />
+      </view>
     </view>
-  </view>
-  <view class="weui-btn-area">
-    <button class="weui-btn" type="primary" bindtap="" style="background-color: #1296db">发布</button>
-  </view>
+    <view class="weui-btn-area">
+      <button class="weui-btn" type="primary" form-type="submit" style="background-color: #1296db">发布</button>
+    </view>
+  </form>
 </view>

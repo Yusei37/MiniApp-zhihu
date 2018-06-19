@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    questionId: '',
     userInfo: {}
   },
 
@@ -15,8 +16,10 @@ Page({
    */
   onLoad: function (options) {
     let that = this
+    let para = options.questionId
     that.setData({
-      userInfo: app.globalData.userInfo
+      questionId: para,
+      userInfo: app.globalData.userInfo,
     })
   },
 
@@ -69,31 +72,31 @@ Page({
   
   },
 
-  addQuestion: function (e) {
+  addReply: function (e) {
     let that = this
-    let question = {}
-    question.author = that.data.userInfo.nickName
-    question.title = e.detail.value.title
-    question.description = e.detail.value.textarea
+    let replyItem = {}
+    replyItem.name = that.data.userInfo.nickName
+    replyItem.image = that.data.userInfo.avatarUrl
+    replyItem.content = e.detail.value.textarea
     wx.request({
-      url: host.host + '/question/add',
-      data: question,
+      url: host.host + '/question/'+ that.data.questionId +'/addReply',
+      data: replyItem,
       header: { 'content-type': 'application/json' },
       method: 'POST',
       dataType: 'json',
       success: function (res) {
-        console.log('write request successed: ' + res)
+        console.log('reply request successed: ' + res)
         if (res.statusCode == 200) {
           wx.showToast({
             title: '发布成功',
             icon: 'success',
             duration: 2000
           })
-          setTimeout(function () {
+          setTimeout(function () { 
             wx.navigateBack({
               delta: 1,
             })
-          }, 2000);
+           }, 2000);
         }
         else {
           wx.showToast({
@@ -104,10 +107,10 @@ Page({
         }
       },
       fail: function (res) {
-        console.log('write request failed: ' + res)
+        console.log('reply request failed: ' + res)
       },
       complete: function (res) {
-        console.log('write request completed: ' + res)
+        console.log('reply request completed: ' + res)
       },
     })
   }

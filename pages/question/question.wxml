@@ -21,9 +21,9 @@
         <image src='/icon/invite.png'></image>
         <text>邀请回答</text>
       </view>
-      <view class='item'>
-        <image src='/icon/answer.png'></image>
-        <text>添加回答</text>
+      <view class='item' catchtap='{{jump}}'>
+        <image src='{{image}}'></image>
+        <text>{{text}}</text>
       </view>
     </view>
   </view>
@@ -44,7 +44,7 @@
             <view class="weui-media-box__desc">{{item.content}}
             </view>
             <view class="weui-media-box__info">
-              <view class="weui-media-box__info__meta">{{item.length}} 赞同 · {{item.comment.length}} 评论 · {{item.time}}</view>
+              <view class="weui-media-box__info__meta">{{item.up.length}} 赞同 · {{item.comment.length}} 评论 · {{item.time}}</view>
             </view>
           </view>
         </view>

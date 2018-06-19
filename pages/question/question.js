@@ -1,5 +1,6 @@
 const host = require('../../utils/host')
 const formatTime = require('../../utils/util')
+const app = getApp()
 
 Page({
 
@@ -7,7 +8,12 @@ Page({
    * 页面的初始数据
    */
   data: {
+    userInfo: {},
     question: [],
+    jump: 'onJump2Reply',
+    jumpId: '',
+    text: '添加回答',
+    image: '/icon/answer.png'
   },
 
   /**
@@ -17,6 +23,9 @@ Page({
     let that = this
     let para = options.questionId
     console.log(para)
+    that.setData({
+      userInfo: app.globalData.userInfo
+    })
     that.getQuestionDataById(para)
   },
 
@@ -69,10 +78,24 @@ Page({
   
   },
 
+  onJump2Reply: function () {
+    let that = this
+    wx.navigateTo({
+      url: '/pages/reply/reply?questionId=' + that.data.question.questionId
+    })
+  },
+
   onJump2Answer: function (e) {
     console.log(e.currentTarget.id)
     wx.navigateTo({
       url: '/pages/answer/answer?replyId=' + e.currentTarget.id
+    })
+  },
+
+  onJump2Answer2: function () {
+    let that = this
+    wx.navigateTo({
+      url: '/pages/answer/answer?replyId=' + that.data.jumpId
     })
   },
 
@@ -96,6 +119,7 @@ Page({
           that.setData({
             question: result
           })
+          that.detailChange()
         }
         else {
 
@@ -114,5 +138,22 @@ Page({
         console.log('question request completed: ' + res)
       }
     })
+  },
+
+  detailChange: function () {
+    let that = this
+    let name = that.data.userInfo.nickName
+    let reply = that.data.question.reply
+    for (let i of reply) {
+      if (i.name == name) {
+        that.setData({
+          text: '查看回答',
+          writeImage: '/icon/watch.png',
+          jumpId: i._id,
+          jump: 'onJump2Answer2'
+        })
+        break;
+      }
+    }
   }
 })

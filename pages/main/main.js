@@ -156,8 +156,7 @@ Page({
           let result = res.data
           console.log(result)
           for (let i = 0; i < result.length; i++) {
-            for(let j = 0; j < result[i].reply.length; j++)
-              result[i].reply[j].time = formatTime.formatTime(new Date(result[i].reply[j].time))
+              result[i].reply.time = formatTime.formatTime(new Date(result[i].reply.time))
           }
           that.setData({
             questionData: result

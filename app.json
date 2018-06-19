@@ -8,7 +8,8 @@
     "pages/answer/answer",
     "pages/index/index",
     "pages/write/write",
-    "pages/question/question"
+    "pages/question/question",
+    "pages/reply/reply"
   ],
   "window":{
     "backgroundTextStyle":"light",
