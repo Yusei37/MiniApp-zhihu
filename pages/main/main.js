@@ -112,20 +112,23 @@ Page({
   },
 
   upper: function() {
+    let that = this
     wx.showNavigationBarLoading()
     console.log("upper");
+    that.getMoreQuestionData("upper")
     setTimeout(function() {
       wx.hideNavigationBarLoading();
       wx.stopPullDownRefresh();
-    }, 2000);
+    }, 1000);
   },
   lower: function(e) {
     wx.showNavigationBarLoading();
     let that = this;
+    console.log("lower")
+    that.getMoreQuestionData("lower")
     setTimeout(function() {
       wx.hideNavigationBarLoading();
     }, 1000);
-    console.log("lower")
   },
 
   onJump2Answer: function (e) {
@@ -164,6 +167,57 @@ Page({
         }
         else {
           
+        }
+
+      },
+      fail: function (res) {
+        console.log('question request failed: ' + res)
+        wx.showToast({
+          title: '数据加载失败',
+          icon: 'success',
+          duration: 2000
+        })
+      },
+      complete: function (res) {
+        console.log('question request completed: ' + res)
+      }
+    })
+  },
+
+  getMoreQuestionData: function (obj) {
+    let that = this
+    wx.request({
+      url: host.host + '/question',
+      data: '',
+      header: { 'content-type': 'application/json' },
+      method: 'GET',
+      dataType: 'json',
+      success: function (res) {
+        console.log('question request successed: ' + res)
+        if (res.statusCode == 200) {
+          let result = res.data
+          console.log(result)
+          for (let i = 0; i < result.length; i++) {
+            result[i].reply.time = formatTime.formatTime(new Date(result[i].reply.time))
+          }
+          let newData = []
+          if (obj == 'upper') {
+            newData = result.concat(that.data.questionData)
+          }
+          else {
+            newData = that.data.questionData.concat(result)
+          }
+          that.setData({
+            questionData: newData
+          }),
+          wx.showToast({
+            title: '数据加载成功',
+            icon: 'success',
+            duration: 2000
+          })
+        }
+        else {
+
         }
 
       },

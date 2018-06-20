@@ -20,10 +20,11 @@ swiper-item {
   width: 65%;
 }
 
-#svg {
+ #svg {
   width: 20rpx;
   height: 20rpx;
 }
+
 .price_bg {
   width: 100rpx;
   padding-right: 10rpx;

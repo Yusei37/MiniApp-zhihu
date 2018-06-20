@@ -15,7 +15,7 @@ Page({
     autoplay: true,
     interval: 5000,
     duration: 1000,
-    liveData: [] 
+    liveData: []
   },
 
   /**
@@ -109,7 +109,7 @@ Page({
         console.log('live request failed: ' + res)   
           wx.showToast({
             title: '数据加载失败',
-            icon: 'none',
+            icon: 'success',
             duration: 2000
           })
       },

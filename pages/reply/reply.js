@@ -82,7 +82,7 @@ Page({
       url: host.host + '/question/'+ that.data.questionId +'/addReply',
       data: replyItem,
       header: { 'content-type': 'application/json' },
-      method: 'POST',
+      method: 'PUT',
       dataType: 'json',
       success: function (res) {
         console.log('reply request successed: ' + res)

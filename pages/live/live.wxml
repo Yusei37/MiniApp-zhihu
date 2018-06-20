@@ -38,7 +38,7 @@
 
     <view class="weui-panel__ft" style='text-align: center'>
       <view class="weui-cell__bd" catchtap='onReloadData'>
-        <image src='/icon/change.svg' id='svg'></image>
+         <image src='/icon/change.svg' id='svg'></image> 
         <text style='color: #1afa29'> 换一批</text>
       </view>
     </view>

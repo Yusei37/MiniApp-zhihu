@@ -47,11 +47,11 @@
 
   <view class="weui-panel__ft">
       <view class='updown'>
-        <view id='up' catchtap='changeUp'>
+        <view id='up' catchtap='upRequest'>
           <image src='{{upImage}}' style="vertical-align: middle;width:50rpx; height: 50rpx;"></image>
           <text style='color: {{upColor}};'>{{up}} {{replyShow.up.length}}</text>
         </view>
-        <view id='down' catchtap='changeDown'>
+        <view id='down' catchtap='downRequest'>
           <image src='{{downImage}}' style="vertical-align: middle;width:50rpx; height: 50rpx;"></image>
         </view>
       </view>
@@ -61,11 +61,11 @@
           <text>评论 {{replyShow.comment.length}}</text>
         </view>
         <view class='item'>
-          <image src='{{collectImage}}' catchtap='changeCollect'></image>
+          <image src='{{collectImage}}' catchtap='collectRequest'></image>
           <text style='color: {{collectColor}};'>{{collect}}</text>
         </view>
         <view class='item'>
-          <image src='{{thankImage}}' catchtap='changeThank'></image>
+          <image src='{{thankImage}}' catchtap='thankRequest'></image>
           <text style='color: {{thankColor}};'>{{thank}}</text>
         </view>
       </view>

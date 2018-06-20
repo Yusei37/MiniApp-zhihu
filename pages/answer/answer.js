@@ -297,4 +297,212 @@ Page({
       })
     }
   },
+
+  collectRequest: function () {
+    let that = this
+    let name = that.data.userInfo.nickName
+    let sendData = that.data.replyShow.collect
+    if (that.data.collect == '已收藏') {
+      let index = -1
+      for (let i = 0; i < sendData.length; i++) {
+        if (name == sendData[i]) {
+          index = i
+        }
+      }
+      sendData.splice(index)
+    }
+    else {
+      sendData.push(name)
+    }
+    wx.request({
+      url: host.host + '/question/reply/' + that.data.replyShow._id +'/modifyCollect',
+      data: sendData,
+      header: { 'content-type': 'application/json' },
+      method: 'PUT',
+      dataType: 'json',
+      success: function (res) {
+        console.log('collect request successed: ' + res)
+        if (res.statusCode == 200) {
+          let result = res.data
+          console.log(result)
+          result.time = formatTime.formatTime(new Date(result.time))
+          that.setData({       
+            replyShow: result
+          })
+          that.changeCollect()
+        }
+        else {
+
+        }
+
+      },
+      fail: function (res) {
+        console.log('collect request failed: ' + res)
+        wx.showToast({
+          title: '收藏更改失败',
+          icon: 'success',
+          duration: 2000
+        })
+      },
+      complete: function (res) {
+        console.log('collect request completed: ' + res)
+      }
+    })   
+  },
+
+  thankRequest: function () {
+    let that = this
+    let name = that.data.userInfo.nickName
+    let sendData = that.data.replyShow.thank
+    if (that.data.thank == '已感谢') {
+      let index = -1
+      for (let i = 0; i < sendData.length; i++) {
+        if (name == sendData[i]) {
+          index = i
+        }
+      }
+      sendData.splice(index)
+    }
+    else {
+      sendData.push(name)
+    }
+    wx.request({
+      url: host.host + '/question/reply/' + that.data.replyShow._id + '/modifyThank',
+      data: sendData,
+      header: { 'content-type': 'application/json' },
+      method: 'PUT',
+      dataType: 'json',
+      success: function (res) {
+        console.log('thank request successed: ' + res)
+        if (res.statusCode == 200) {
+          let result = res.data
+          console.log(result)
+          result.time = formatTime.formatTime(new Date(result.time))
+          that.setData({
+            replyShow: result
+          })
+          that.changeThank()
+        }
+        else {
+
+        }
+
+      },
+      fail: function (res) {
+        console.log('thank request failed: ' + res)
+        wx.showToast({
+          title: '感谢更改失败',
+          icon: 'success',
+          duration: 2000
+        })
+      },
+      complete: function (res) {
+        console.log('thank request completed: ' + res)
+      }
+    })
+  },
+
+  upRequest: function () {
+    let that = this
+    let name = that.data.userInfo.nickName
+    let sendData = that.data.replyShow.up
+    if (that.data.up == '已赞同') {
+      let index = -1
+      for (let i = 0; i < sendData.length; i++) {
+        if (name == sendData[i]) {
+          index = i
+        }
+      }
+      sendData.splice(index)
+    }
+    else {
+      sendData.push(name)
+    }
+    wx.request({
+      url: host.host + '/question/reply/' + that.data.replyShow._id + '/modifyUp',
+      data: sendData,
+      header: { 'content-type': 'application/json' },
+      method: 'PUT',
+      dataType: 'json',
+      success: function (res) {
+        console.log('up request successed: ' + res)
+        if (res.statusCode == 200) {
+          let result = res.data
+          console.log(result)
+          result.time = formatTime.formatTime(new Date(result.time))
+          that.setData({
+            replyShow: result
+          })
+          that.changeUp()
+        }
+        else {
+
+        }
+
+      },
+      fail: function (res) {
+        console.log('up request failed: ' + res)
+        wx.showToast({
+          title: '赞同更改失败',
+          icon: 'success',
+          duration: 2000
+        })
+      },
+      complete: function (res) {
+        console.log('up request completed: ' + res)
+      }
+    })
+  },
+
+  downRequest: function () {
+    let that = this
+    let name = that.data.userInfo.nickName
+    let sendData = that.data.replyShow.down
+    if (that.data.down == '/icon/down.png') {
+      let index = -1
+      for (let i = 0; i < sendData.length; i++) {
+        if (name == sendData[i]) {
+          index = i
+        }
+      }
+      sendData.splice(index)
+    }
+    else {
+      sendData.push(name)
+    }
+    wx.request({
+      url: host.host + '/question/reply/' + that.data.replyShow._id + '/modifyDown',
+      data: sendData,
+      header: { 'content-type': 'application/json' },
+      method: 'PUT',
+      dataType: 'json',
+      success: function (res) {
+        console.log('down request successed: ' + res)
+        if (res.statusCode == 200) {
+          let result = res.data
+          console.log(result)
+          result.time = formatTime.formatTime(new Date(result.time))
+          that.setData({
+            replyShow: result
+          })
+          that.changeDown()
+        }
+        else {
+
+        }
+
+      },
+      fail: function (res) {
+        console.log('down request failed: ' + res)
+        wx.showToast({
+          title: '不赞同更改失败',
+          icon: 'success',
+          duration: 2000
+        })
+      },
+      complete: function (res) {
+        console.log('down request completed: ' + res)
+      }
+    })
+  }
 })
