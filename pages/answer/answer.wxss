@@ -67,12 +67,14 @@
 }
 
 .updown {
+  width: 40%;
   display: flex;
   flex: 1;
   flex-direction: row;  
 }
 
 .other {
+  width: 60%;
   display: flex;
   flex: 1;
   flex-direction: row-reverse;

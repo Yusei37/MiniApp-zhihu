@@ -13,7 +13,10 @@ Page({
     jump: 'onJump2Reply',
     jumpId: '',
     text: '添加回答',
-    image: '/icon/answer.png'
+    image: '/icon/answer.png',
+    follow: '+ 关注问题',
+    bgColor: '#b23aee',
+    color: 'white'
   },
 
   /**
@@ -154,6 +157,24 @@ Page({
         })
         break;
       }
+    }
+  },
+
+  changeFollow: function () {
+    let that = this
+    if (that.data.follow == '+ 关注问题') {
+      that.setData({
+        follow: '已关注问题',
+        bgColor: '#fff0f5',
+        color: '#707070'
+      })
+    }
+    else {
+      that.setData({
+        follow: '+ 关注问题',
+        bgColor: '#b23aee',
+        color: 'white'
+      })
     }
   }
 })

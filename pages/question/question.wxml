@@ -11,8 +11,8 @@
         <view class='info'>
           <text id='detail'>{{question.follow.length}} 人关注 {{question.reply.length}} 条评论</text>
         </view>
-        <view class='follow'>
-          <text id='follow'>+ 关注问题</text>
+        <view class='follow' catchtap='changeFollow'>
+          <text id='follow' style='background-color: {{bgColor}}; color: {{color}};'>{{follow}}</text>
         </view>
       </view>
     </view>

@@ -21,8 +21,7 @@ Page({
       { url: '', name: '反馈与帮助', icon: 'flag.png', bgcolor: '#8a8a8a' },
       { header: true },
       { url: '', name: '设置', icon: 'setting.png', bgcolor: '#8a8a8a' },
-    ],
-    favor: []
+    ]
   },
 
   /**
@@ -136,9 +135,9 @@ Page({
         console.log('mine request successed: ' + res) 
         if (res.statusCode == 200) {
           that.setData({
-            favor: res.data
+            userInfo: res.data
           })
-          app.globalData.favor = res.data
+          app.globalData.userInfo = res.data
         }
         else {
           

@@ -7,7 +7,7 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
-  <view class="usermotto">
-    <text class="user-motto" catchtap='onTapJump'>{{motto}}</text>
-  </view>
+    <view catchtap='onTapJump' view class='journey-container'>
+        <text class='journey'>发现更大的世界</text> 
+    </view>
 </view>
