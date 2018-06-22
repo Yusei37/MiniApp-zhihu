@@ -47,14 +47,15 @@
 }
 
 .message image {
-  height: 50rpx;
-  width: 50rpx;
-  border-radius: 50rpx;
+  height: 75rpx;
+  width: 75rpx;
+  border-radius: 75rpx;
   margin: 20rpx;
 }
 
 .message .content {
    width: 70%;  
+   margin-top: 20rpx; 
 }
 
 .message .content text {
