@@ -210,6 +210,13 @@ Page({
         break
       }
     }
+
+    for (let i of that.data.userInfo.follow) {
+      if (i.nickName == replyShow.name) {
+        that.changeFollow()
+        break
+      }
+    }
   },
 
   changeFollow: function () {
@@ -272,6 +279,9 @@ Page({
       that.setData({
         downImage: '/icon/down_focus.png'
       })
+      if (that.data.up == '已赞同') {
+        that.changeUp()
+      }
     }
     else {
       that.setData({
@@ -288,6 +298,9 @@ Page({
         upImage: '/icon/up_focus.png',
         upColor: '#1296db'
       })
+      if (that.data.downImage == '/icon/down_focus.png') {
+        that.changeDown()
+      }
     }
     else {
       that.setData({
@@ -307,6 +320,7 @@ Page({
       for (let i = 0; i < sendData.length; i++) {
         if (name == sendData[i]) {
           index = i
+          break
         }
       }
       sendData.splice(index)
@@ -359,6 +373,7 @@ Page({
       for (let i = 0; i < sendData.length; i++) {
         if (name == sendData[i]) {
           index = i
+          break
         }
       }
       sendData.splice(index)
@@ -411,6 +426,7 @@ Page({
       for (let i = 0; i < sendData.length; i++) {
         if (name == sendData[i]) {
           index = i
+          break
         }
       }
       sendData.splice(index)
@@ -463,6 +479,7 @@ Page({
       for (let i = 0; i < sendData.length; i++) {
         if (name == sendData[i]) {
           index = i
+          break
         }
       }
       sendData.splice(index)
@@ -502,6 +519,63 @@ Page({
       },
       complete: function (res) {
         console.log('down request completed: ' + res)
+      }
+    })
+  },
+
+  followRequest: function () {
+    let that = this
+    let name = that.data.replyShow.name
+    let sendData = that.data.userInfo.follow
+    if (that.data.follow == '已关注') {
+      let index = -1
+      for (let i = 0; i < sendData.length; i++) {
+        if (name == sendData[i].nickName) {
+          index = i
+          break
+        }
+      }
+      sendData.splice(index)
+    }
+    else {
+      let followItem = {}
+      followItem.nickName = name
+      followItem.avatarUrl = that.data.replyShow.image
+      sendData.push(followItem)
+    }
+    console.log(JSON.stringify(sendData))
+    wx.request({
+      url: host.host + '/user/' + that.data.userInfo._id + '/modifyFollow',
+      data: sendData,
+      header: { 'content-type': 'application/json' },
+      method: 'PUT',
+      dataType: 'json',
+      success: function (res) {
+        console.log('follow request successed: ' + res)
+        if (res.statusCode == 200) {
+          let result = res.data
+          console.log(result)
+          that.setData({
+            userInfo: result
+          })
+          app.globalData.userInfo = result
+          that.changeFollow()
+        }
+        else {
+
+        }
+
+      },
+      fail: function (res) {
+        console.log('follow request failed: ' + res)
+        wx.showToast({
+          title: '关注更改失败',
+          icon: 'success',
+          duration: 2000
+        })
+      },
+      complete: function (res) {
+        console.log('follow request completed: ' + res)
       }
     })
   }

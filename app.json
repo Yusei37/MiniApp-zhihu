@@ -1,15 +1,16 @@
 {
   "pages":[
+    "pages/index/index",
     "pages/main/main",
     "pages/idea/idea",
     "pages/live/live",
     "pages/message/message",
     "pages/mine/mine",
-    "pages/answer/answer",
-    "pages/index/index",
+    "pages/answer/answer", 
     "pages/write/write",
     "pages/question/question",
-    "pages/reply/reply"
+    "pages/reply/reply",
+    "pages/chat/chat"
   ],
   "window":{
     "backgroundTextStyle":"light",

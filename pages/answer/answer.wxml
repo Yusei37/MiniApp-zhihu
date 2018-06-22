@@ -27,7 +27,7 @@
         <view class='info'>
           <text id='name'>{{replyShow.name}}</text>
         </view>
-        <view class='follow' catchtap='changeFollow'>
+        <view class='follow' catchtap='followRequest'>
           <text id='follow' style='background-color: {{bgColor}}; color: {{color}};'>{{follow}}</text>
         </view>
       </view>

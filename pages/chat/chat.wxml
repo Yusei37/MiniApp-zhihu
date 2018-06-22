@@ -1,0 +1,29 @@
+<view class='page'>
+  <scroll-view class='scroll' scroll-y style="width: 100%">
+    <block wx:for="{{mq}}" wx:key="{{index}}">
+      <view id="{{index}}">
+        <view class='item'>
+          <view class='time'>
+            <text>{{item.time}}</text>
+          </view>
+          <view wx:if="{{item.back}}" class='message back'>
+            <image src="{{backImage}}"></image>
+            <view class='content'>
+              <text>{{item.content}}</text>
+            </view>
+          </view>
+          <view wx:else class='message send'>
+            <image src="{{userInfo.avatarUrl}}"></image>
+            <view class='content'>
+              <text>{{item.content}}</text> </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+  <view class='fill'></view>
+  <view class='footer'>
+    <input placeholder='请输入要发送的信息' value="{{inputVal}}" bindinput="inputTyping"></input>
+    <text catchtap='sendMessage'> 发送 </text>
+  </view>
+</view>

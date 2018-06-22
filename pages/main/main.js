@@ -111,7 +111,25 @@ Page({
     });
   },
 
-  upper: function() {
+  upper1: function () {
+    let that = this
+    wx.showNavigationBarLoading()
+    console.log("upper");
+    setTimeout(function () {
+      wx.hideNavigationBarLoading();
+      wx.stopPullDownRefresh();
+    }, 1000);
+  },
+  lower1: function (e) {
+    wx.showNavigationBarLoading();
+    let that = this;
+    console.log("lower")
+    setTimeout(function () {
+      wx.hideNavigationBarLoading();
+    }, 1000);
+  },
+
+  upper2: function() {
     let that = this
     wx.showNavigationBarLoading()
     console.log("upper");
@@ -121,7 +139,7 @@ Page({
       wx.stopPullDownRefresh();
     }, 1000);
   },
-  lower: function(e) {
+  lower2: function(e) {
     wx.showNavigationBarLoading();
     let that = this;
     console.log("lower")

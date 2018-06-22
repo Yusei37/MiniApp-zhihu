@@ -53,7 +53,7 @@
       </view>
       <view class="weui-tab__panel">
         <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
-          <scroll-view scroll-y="true" style="height: 1000rpx" bindscrolltoupper="upper" upper-threshold="10" lower-threshold="5" bindscrolltolower="lower" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+          <scroll-view scroll-y="true" style="height: 1000rpx" bindscrolltoupper="upper1" upper-threshold="10" lower-threshold="5" bindscrolltolower="lower1" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
             <view>
               <view class='partition'></view>
               <view class="weui-panel">
@@ -142,7 +142,7 @@
         </view>
         <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
 
-          <scroll-view scroll-y="true" style="height: 1000rpx" bindscrolltoupper="upper" upper-threshold="10" lower-threshold="5" bindscrolltolower="lower" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+          <scroll-view scroll-y="true" style="height: 1000rpx" bindscrolltoupper="upper2" upper-threshold="10" lower-threshold="5" bindscrolltolower="lower2" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
             <block wx:for="{{questionData}}" wx:key="{{index}}">  
               <view class='partition'></view>
               <view class="weui-panel">
